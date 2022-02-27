@@ -13,6 +13,7 @@ Personal project to have some fun practicing some React while I learn styled com
 - [PokeAPI](https://pokeapi.co/)
 - [PokeAPI JS Wrapper lib](https://github.com/PokeAPI/pokeapi-js-wrapper)
   -- This one's wrapped up and being used mainly because it deals with caching, might remove later.
+- Pokémon Assets CDN -- To get cooler images than the ones returned by PokeAPI
 
 ## Available Scripts
 

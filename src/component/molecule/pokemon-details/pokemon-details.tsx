@@ -3,16 +3,18 @@ import {
   PokedexContext,
   PokedexContextProps,
 } from '../../../context/PokedexContext';
-import { PokemonBase, PokemonDetail } from '../../../data/type/pokemon';
+import { PokemonDetail } from '../../../data/type/pokemon';
 import { Loader } from '../../atom/loader/loader';
 import {
   StyledCardContentDiv,
   StyledContainerDiv,
 } from './pokemon-details.styled';
 
-export const PokemonDetails: FC<{ pokemonBaseData: PokemonBase }> = ({
-  pokemonBaseData,
-}) => {
+type PokemonDetailsProps = {
+  pokemonId: number;
+};
+
+export const PokemonDetails: FC<PokemonDetailsProps> = ({ pokemonId }) => {
   const { pokedex } = useContext(PokedexContext) as PokedexContextProps;
 
   const [currentPokemonDetailedData, setCurrentPokemonDetailedData] =
@@ -21,9 +23,8 @@ export const PokemonDetails: FC<{ pokemonBaseData: PokemonBase }> = ({
   useEffect(() => {
     let isMounted = true;
 
-    pokedex.getPokemonDetailsById(pokemonBaseData.id).then((details) => {
-      if (isMounted)
-        setCurrentPokemonDetailedData({ ...pokemonBaseData, ...details });
+    pokedex.getPokemonDetailsById(pokemonId).then((details) => {
+      if (isMounted) setCurrentPokemonDetailedData(details);
     });
 
     return () => {

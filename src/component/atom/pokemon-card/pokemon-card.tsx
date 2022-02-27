@@ -42,7 +42,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
         src={pokemon.spriteUrl}
         alt={pokemon.name}
       />
-      {displayDetails && <PokemonDetails pokemonBaseData={pokemon} />}
+      {displayDetails && <PokemonDetails pokemonId={pokemon.id} />}
     </StyledContainerDiv>
   );
 };

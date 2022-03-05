@@ -5,10 +5,13 @@ import {
 } from '../../../context/PokedexContext';
 import { PokemonBase } from '../../../data/type/pokemon';
 import { PokemonCard } from '../../atom/pokemon-card/pokemon-card';
+import { StyledContainerDiv } from './pokemon-grid.styled';
 
 type PokemonGridProps = {
   startingOffset?: number;
 };
+
+const POKEMON_PER_PAGE = 12;
 
 export const PokemonGrid: FC<PokemonGridProps> = ({ startingOffset = 0 }) => {
   const { pokedex } = useContext(PokedexContext) as PokedexContextProps;
@@ -24,7 +27,7 @@ export const PokemonGrid: FC<PokemonGridProps> = ({ startingOffset = 0 }) => {
         window.innerHeight + window.scrollY >=
         document.body.offsetHeight - 1
       ) {
-        innerOffset += 10;
+        innerOffset += POKEMON_PER_PAGE;
         setOffset(innerOffset);
       }
     };
@@ -36,17 +39,17 @@ export const PokemonGrid: FC<PokemonGridProps> = ({ startingOffset = 0 }) => {
 
   useEffect(() => {
     pokedex
-      .getPokemonInInterval({ offset, limit: 10 })
+      .getPokemonInInterval({ offset, limit: POKEMON_PER_PAGE })
       .then((addedPokemonList) => {
         setPokemonList([...pokemonList, ...addedPokemonList]);
       });
   }, [offset]);
 
   return (
-    <>
+    <StyledContainerDiv>
       {pokemonList.map((pokemon) => (
         <PokemonCard key={pokemon.id} pokemon={pokemon} />
       ))}
-    </>
+    </StyledContainerDiv>
   );
 };

@@ -1,27 +1,24 @@
 import { FC, useState } from 'react';
 import { PokemonBase } from '../../../data/type/pokemon';
-import { PokemonDetails } from '../../molecule/pokemon-details/pokemon-details';
 import { Loader } from '../loader/loader';
 import {
   StyledContainerDiv,
   StyledImage,
   StyledPokemonHeader,
 } from './pokemon-card.styled';
+import { useNavigate } from 'react-router-dom';
 
 type PokemonCardProps = {
   pokemon: PokemonBase;
 };
 
 export const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
-  const [displayDetails, setDisplayDetails] = useState(false);
+  const navigate = useNavigate();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
 
-  const handleOnMouseEnter = () => {
-    setDisplayDetails(true);
-  };
-
-  const handleOnMouseOut = () => {
-    setDisplayDetails(false);
+  const handleImageClick = () => {
+    navigate(`/details/${pokemon.id}`);
   };
 
   const handleImageLoad = () => {
@@ -35,14 +32,12 @@ export const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
       </StyledPokemonHeader>
       {!isImageLoaded && <Loader />}
       <StyledImage
+        onClick={handleImageClick}
         isLoaded={isImageLoaded}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseOut={handleOnMouseOut}
         onLoad={handleImageLoad}
         src={pokemon.spriteUrl}
         alt={pokemon.name}
       />
-      {displayDetails && <PokemonDetails pokemonId={pokemon.id} />}
     </StyledContainerDiv>
   );
 };

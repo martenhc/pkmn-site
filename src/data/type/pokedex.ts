@@ -1,6 +1,6 @@
 import {
   ApiPokemonSpeciesResponse,
-  ApiPokemonResponse,
+  ApiPokemonTypeResponse,
   ApiPokemonIntervalResponse,
 } from './api-response';
 
@@ -10,7 +10,7 @@ export type Interval = {
 };
 
 export type Pokedex = {
-  getPokemonByName: (id: number) => Promise<ApiPokemonResponse>;
+  getPokemonByName: (id: number) => Promise<ApiPokemonTypeResponse>;
   getPokemonSpeciesByName: (id: number) => Promise<ApiPokemonSpeciesResponse>;
   getPokemonsList: (interval: Interval) => Promise<ApiPokemonIntervalResponse>;
 };

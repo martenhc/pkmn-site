@@ -15,8 +15,7 @@ export type ApiPokemonIntervalResponse = {
   }>;
 };
 
-export type ApiPokemonResponse = {
-  name: string;
+export type ApiPokemonTypeResponse = {
   types: Array<ApiTypeResponse>;
   // Will be using the official Pokémon images from their assets service.
   // TODO: Cache that.
@@ -36,6 +35,9 @@ export type ApiPokemonSpeciesResponse = {
   }>;
   color: {
     name: keyof typeof HexColor;
+  };
+  evolves_from_species: null | {
+    name: string;
   };
   is_baby: boolean;
   is_mythical: boolean;

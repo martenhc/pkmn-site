@@ -13,21 +13,11 @@ export class WrappedPokedex {
   }
 
   // The original API takes names or IDs for this poorly called method, hence the wrapper.
-  public async getPokemonById(id: number): Promise<
-    PokemonBase & {
-      typeNames: Array<keyof typeof PokemonType>;
-    }
-  > {
-    const { name: lowercaseName, types } = await this._pokedex.getPokemonByName(
-      id
-    );
-
-    return {
-      id,
-      name: uppercaseFirstLetter(lowercaseName),
-      spriteUrl: getPokemonSpriteAssetUrlByPokemonId(id),
-      typeNames: types.map(({ type: { name: typeName } }) => typeName),
-    };
+  public async getPokemonTypesById(
+    id: number
+  ): Promise<Array<keyof typeof PokemonType>> {
+    const { types } = await this._pokedex.getPokemonByName(id);
+    return types.map(({ type: { name: typeName } }) => typeName);
   }
 
   public async getPokemonInInterval(
@@ -48,7 +38,6 @@ export class WrappedPokedex {
   public async getPokemonDetailsById(
     pokemonId: number
   ): Promise<PokemonDetail> {
-    // first entry is english by default
     const {
       id,
       name: lowercaseName,
@@ -58,6 +47,7 @@ export class WrappedPokedex {
       is_baby: isBaby,
       is_mythical: isMythical,
       is_legendary: isLegendary,
+      evolves_from_species: previousForm,
     } = await this._pokedex.getPokemonSpeciesByName(pokemonId);
 
     const englishFlavorText = flavor_text_entries.find(
@@ -75,6 +65,7 @@ export class WrappedPokedex {
       isBaby,
       isMythical,
       isLegendary,
+      previousForm,
     };
   }
 }

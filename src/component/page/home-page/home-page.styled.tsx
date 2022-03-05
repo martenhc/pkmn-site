@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const StyledContainerDiv = styled.div`
-  width: 100%;
-  position: relative;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+export const StyledTextContainer = styled.div`
+  font-family: 'Pokemon Solid Normal';
+  font-size: 40px;
+  letter-spacing: 2px;
+  padding: 2%;
+  text-align: center;
 `;

@@ -1,9 +1,12 @@
 import { FC } from 'react';
 import { PokemonGrid } from '../../molecule/pokemon-grid/pokemon-grid';
-import { StyledContainerDiv } from './home-page.styled';
+import { StyledTextContainer } from './home-page.styled';
 
 export const HomePage: FC = () => (
-  <StyledContainerDiv>
+  <div>
+    <StyledTextContainer>
+      Click on a Pokémon to see more detailed information
+    </StyledTextContainer>
     <PokemonGrid />
-  </StyledContainerDiv>
+  </div>
 );

@@ -8,4 +8,5 @@ export enum HexColor {
   'pink' = '#ffb8e2',
   'gray' = '#d6d6d6',
   'black' = '#333333',
+  'white' = '#ffffff',
 }

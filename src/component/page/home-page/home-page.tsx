@@ -1,12 +1,12 @@
 import { FC } from 'react';
+import { Title } from '../../core/title/title';
 import { PokemonGrid } from '../../molecule/pokemon-grid/pokemon-grid';
-import { StyledTextContainer } from './home-page.styled';
 
 export const HomePage: FC = () => (
-  <div>
-    <StyledTextContainer>
+  <>
+    <Title size="BIG">
       Click on a Pokémon to see more detailed information
-    </StyledTextContainer>
+    </Title>
     <PokemonGrid />
-  </div>
+  </>
 );

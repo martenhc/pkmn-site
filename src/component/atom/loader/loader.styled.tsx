@@ -10,6 +10,7 @@ export const StyledImage = styled.img`
   animation-iteration-count: infinite;
 
   display: block;
-  margin: auto;
+  margin: 5% auto;
   width: 100%;
+  max-width: 200px;
 `;

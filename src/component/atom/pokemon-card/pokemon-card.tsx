@@ -10,15 +10,18 @@ import { useNavigate } from 'react-router-dom';
 
 type PokemonCardProps = {
   pokemon: PokemonBase;
+  isClickable?: boolean;
 };
 
-export const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
+export const PokemonCard: FC<PokemonCardProps> = ({
+  pokemon,
+  isClickable = true,
+}) => {
   const navigate = useNavigate();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
 
   const handleImageClick = () => {
-    navigate(`/details/${pokemon.id}`);
+    if (isClickable) navigate(`/details/${pokemon.id}`);
   };
 
   const handleImageLoad = () => {
@@ -34,6 +37,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
       <StyledImage
         onClick={handleImageClick}
         isLoaded={isImageLoaded}
+        isClickable={isClickable}
         onLoad={handleImageLoad}
         src={pokemon.spriteUrl}
         alt={pokemon.name}

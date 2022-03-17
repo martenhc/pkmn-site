@@ -14,5 +14,5 @@ export type PokemonDetail = PokemonBase & {
   isBaby: boolean;
   isMythical: boolean;
   isLegendary: boolean;
-  previousForm: { name: string } | null;
+  previousForm: { name: string; url: string } | null;
 };

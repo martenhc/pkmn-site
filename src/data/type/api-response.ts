@@ -38,6 +38,7 @@ export type ApiPokemonSpeciesResponse = {
   };
   evolves_from_species: null | {
     name: string;
+    url: string;
   };
   is_baby: boolean;
   is_mythical: boolean;

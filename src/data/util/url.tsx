@@ -6,3 +6,9 @@ export const getPokemonSpriteAssetUrlByPokemonId = (pokemonId: number) =>
       ? `0${pokemonId}`
       : `${pokemonId}`
   }.png`;
+
+export const getPokemonIdFromDetailUrl = (datailUrl: string) => {
+  // example: "https://pokeapi.co/api/v2/pokemon-species/446/"
+  const urlSections = datailUrl.split('/');
+  return Number(urlSections[urlSections.length - 2]);
+};

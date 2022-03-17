@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PokedexContextProvider } from '../context/PokedexContext';
-import { DetailsPage } from './page/details-page/details-page';
+import { DetailPage } from './page/detail-page/detail-page';
 import { HomePage } from './page/home-page/home-page';
 
 export enum RoutePath {
@@ -13,7 +13,7 @@ export const Router: FC = () => (
   <PokedexContextProvider>
     <Routes>
       <Route path={RoutePath.HOME} element={<HomePage />} />
-      <Route path={RoutePath.DETAILS} element={<DetailsPage />} />
+      <Route path={RoutePath.DETAILS} element={<DetailPage />} />
     </Routes>
   </PokedexContextProvider>
 );

@@ -5,17 +5,15 @@ export const getPokemonTypeHexColorByTypeName = (
   typeName: keyof typeof PokemonType
 ): keyof typeof HexColor => {
   switch (typeName) {
-    case PokemonType.bug:
     case PokemonType.grass:
-    case PokemonType.poison:
       return 'green';
     case PokemonType.dark:
     case PokemonType.shadow:
       return 'black';
-    case PokemonType.dragon:
     case PokemonType.flying:
     case PokemonType.unknown:
       return 'white';
+    case PokemonType.dragon:
     case PokemonType.electric:
       return 'yellow';
     case PokemonType.fairy:
@@ -32,6 +30,9 @@ export const getPokemonTypeHexColorByTypeName = (
     case PokemonType.ice:
     case PokemonType.water:
       return 'blue';
+    case PokemonType.poison:
+    case PokemonType.bug:
+      return 'dark-green';
     case PokemonType.steel:
       return 'gray';
     default:

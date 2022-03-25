@@ -9,11 +9,13 @@ import { StyledContainerDiv } from './pokemon-grid.styled';
 
 type PokemonGridProps = {
   startingOffset?: number;
+  pokemonPerPage?: number;
 };
 
-const POKEMON_PER_PAGE = 12;
-
-export const PokemonGrid: FC<PokemonGridProps> = ({ startingOffset = 0 }) => {
+export const PokemonGrid: FC<PokemonGridProps> = ({
+  startingOffset = 0,
+  pokemonPerPage = 12,
+}) => {
   const { pokedex } = useContext(PokedexContext) as PokedexContextProps;
 
   const [offset, setOffset] = useState(startingOffset);
@@ -27,7 +29,7 @@ export const PokemonGrid: FC<PokemonGridProps> = ({ startingOffset = 0 }) => {
         window.innerHeight + window.scrollY >=
         document.body.offsetHeight - 1
       ) {
-        innerOffset += POKEMON_PER_PAGE;
+        innerOffset += pokemonPerPage;
         setOffset(innerOffset);
       }
     };
@@ -35,15 +37,18 @@ export const PokemonGrid: FC<PokemonGridProps> = ({ startingOffset = 0 }) => {
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [setOffset]);
+  }, [setOffset, startingOffset, pokemonPerPage]);
 
   useEffect(() => {
     pokedex
-      .getPokemonInInterval({ offset, limit: POKEMON_PER_PAGE })
+      .getPokemonInInterval({ offset, limit: pokemonPerPage })
       .then((addedPokemonList) => {
         setPokemonList([...pokemonList, ...addedPokemonList]);
       });
-  }, [offset]);
+    // Setting pokemonList as a dependency would loop indefinitely.
+    // We only want to run this at mount, ideally.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [offset, pokedex, setPokemonList]);
 
   return (
     <StyledContainerDiv>

@@ -10,6 +10,7 @@ Personal project to have some fun practicing some React while I learn styled com
 - [StyledComponents](https://styled-components.com/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Prettier](https://prettier.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) / [Jest](https://github.com/facebook/jest)
 - [PokeAPI](https://pokeapi.co/)
 - [PokeAPI JS Wrapper lib](https://github.com/PokeAPI/pokeapi-js-wrapper)
   -- This one's wrapped up and being used mainly because it deals with caching, might remove later.

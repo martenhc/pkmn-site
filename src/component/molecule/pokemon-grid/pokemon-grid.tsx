@@ -53,7 +53,7 @@ export const PokemonGrid: FC<PokemonGridProps> = ({
   return (
     <StyledContainerDiv>
       {pokemonList.map((pokemon) => (
-        <PokemonCard key={pokemon.id} pokemon={pokemon} />
+        <PokemonCard key={pokemon.id} pokemon={pokemon} isClickable />
       ))}
     </StyledContainerDiv>
   );

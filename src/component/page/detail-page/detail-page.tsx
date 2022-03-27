@@ -72,7 +72,6 @@ export const DetailPage: FC = () => {
                 name: currentPokemonDetailedData.name,
                 spriteUrl: getPokemonSpriteAssetUrlByPokemonId(pokemonId),
               }}
-              isClickable={false}
             />
             <PokemonTypeDetail pokemonId={pokemonId} />
             <PokemonDataDetail

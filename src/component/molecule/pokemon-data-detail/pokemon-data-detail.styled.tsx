@@ -13,7 +13,7 @@ export const StyledFeatureDiv = styled.div`
 
 export const StyledPreviousFormDiv = styled.div`
   display: flex;
-  margin-top: 10%;
+  margin-top: 50px;
 
   div {
     align-self: center;
@@ -22,4 +22,8 @@ export const StyledPreviousFormDiv = styled.div`
       font-weight: bold;
     }
   }
+`;
+
+export const StyledContainerDiv = styled.div`
+  padding: 0 20px;
 `;

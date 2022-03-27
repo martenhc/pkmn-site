@@ -8,6 +8,7 @@ import { PokemonCard } from '../../atom/pokemon-card/pokemon-card';
 import { Heading } from '../../core/heading/heading';
 import {
   StyledCardContainerDiv,
+  StyledContainerDiv,
   StyledFeatureDiv,
   StyledPreviousFormDiv,
 } from './pokemon-data-detail.styled';
@@ -32,7 +33,7 @@ export const PokemonDataDetail = ({
     previousForm && getPokemonIdFromDetailUrl(previousForm.url);
 
   return (
-    <div>
+    <StyledContainerDiv>
       <Heading>Description</Heading>
       {description}
 
@@ -62,6 +63,6 @@ export const PokemonDataDetail = ({
           </StyledCardContainerDiv>
         </StyledPreviousFormDiv>
       )}
-    </div>
+    </StyledContainerDiv>
   );
 };

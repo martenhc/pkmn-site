@@ -5,11 +5,6 @@ type StyledTypeDivProps = {
   backgroundColor: keyof typeof HexColor;
 };
 
-export const StyledPokemonTypeDetail = styled.div`
-  height: 50%;
-  margin: auto 0;
-`;
-
 export const StyledTypeDiv = styled.div`
   background-color: ${({ backgroundColor }: StyledTypeDivProps) =>
     HexColor[backgroundColor] || backgroundColor};
@@ -24,4 +19,8 @@ export const StyledTypeDiv = styled.div`
   padding: 3px 5px;
   text-align: center;
   width: 50%;
+`;
+
+export const StyledTypesContainerDiv = styled.div`
+  margin: auto 0;
 `;

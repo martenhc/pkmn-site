@@ -7,8 +7,8 @@ import PokemonType from '../../../data/enum/pokemon-type';
 import { getPokemonTypeHexColorByTypeName } from '../../../data/util/color';
 import { Heading } from '../../core/heading/heading';
 import {
-  StyledPokemonTypeDetail,
   StyledTypeDiv,
+  StyledTypesContainerDiv,
 } from './pokemon-type-detail.styled';
 
 type PokemonTypeDetailProps = {
@@ -36,9 +36,9 @@ export const PokemonTypeDetail: FC<PokemonTypeDetailProps> = ({
   }, [pokedex, pokemonId]);
 
   return (
-    <StyledPokemonTypeDetail>
+    <div>
       <Heading>Type{`${currentPokemonTypes.length > 1 ? 's' : ''}`}</Heading>
-      <>
+      <StyledTypesContainerDiv>
         {currentPokemonTypes.map((typeName) => (
           <StyledTypeDiv
             backgroundColor={getPokemonTypeHexColorByTypeName(typeName)}
@@ -47,7 +47,7 @@ export const PokemonTypeDetail: FC<PokemonTypeDetailProps> = ({
             {typeName}
           </StyledTypeDiv>
         ))}
-      </>
-    </StyledPokemonTypeDetail>
+      </StyledTypesContainerDiv>
+    </div>
   );
 };

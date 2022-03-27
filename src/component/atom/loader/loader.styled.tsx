@@ -5,12 +5,10 @@ const rotateAnimation = keyframes`
 100% { transform: rotate(360deg); }`;
 
 export const StyledImage = styled.img`
-  animation-duration: 3s;
-  animation-name: ${rotateAnimation};
-  animation-iteration-count: infinite;
+  animation: ${rotateAnimation} 3s infinite;
 
   display: block;
-  margin: 5% auto;
+  margin: 50px auto;
   width: 100%;
   max-width: 200px;
 `;

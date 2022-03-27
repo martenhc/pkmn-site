@@ -1,12 +1,13 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { PokemonBase } from '../../../data/type/pokemon';
-import { Loader } from '../loader/loader';
 import {
+  StyledButton,
   StyledContainerDiv,
-  StyledImage,
   StyledPokemonHeader,
 } from './pokemon-card.styled';
 import { useNavigate } from 'react-router-dom';
+import { Image } from '../../core/image/image';
+import { ConditionalWrapper } from '../../core/conditional-wrapper/conditionalWrapper';
 
 type PokemonCardProps = {
   pokemon: PokemonBase;
@@ -15,33 +16,30 @@ type PokemonCardProps = {
 
 export const PokemonCard: FC<PokemonCardProps> = ({
   pokemon,
-  isClickable = true,
+  isClickable = false,
 }) => {
   const navigate = useNavigate();
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  const handleImageClick = () => {
-    if (isClickable) navigate(`/details/${pokemon.id}`);
+  const handlePokemonClick = () => {
+    navigate(`/details/${pokemon.id}`);
   };
 
-  const handleImageLoad = () => {
-    setIsImageLoaded(true);
-  };
+  const buttonWrapper: FC = ({ children }) => (
+    <StyledButton onClick={handlePokemonClick}>{children}</StyledButton>
+  );
 
   return (
     <StyledContainerDiv>
       <StyledPokemonHeader>
         #{pokemon.id} - {pokemon.name}
       </StyledPokemonHeader>
-      {!isImageLoaded && <Loader />}
-      <StyledImage
-        onClick={handleImageClick}
-        isLoaded={isImageLoaded}
-        isClickable={isClickable}
-        onLoad={handleImageLoad}
-        src={pokemon.spriteUrl}
-        alt={pokemon.name}
-      />
+      <ConditionalWrapper condition={isClickable} wrapper={buttonWrapper}>
+        <Image
+          src={pokemon.spriteUrl}
+          alt={pokemon.name}
+          withOnHoverScaling={isClickable}
+        />
+      </ConditionalWrapper>
     </StyledContainerDiv>
   );
 };

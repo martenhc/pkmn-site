@@ -17,7 +17,7 @@ type PokemonGridProps = {
 
 export const PokemonGrid: FC<PokemonGridProps> = ({
   startingOffset = 0,
-  pokemonPerPage = 12,
+  pokemonPerPage = 9,
 }) => {
   const { pokedex } = useContext(PokedexContext) as PokedexContextProps;
 

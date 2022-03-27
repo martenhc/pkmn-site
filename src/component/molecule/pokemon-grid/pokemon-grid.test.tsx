@@ -5,7 +5,7 @@ import { PokemonGrid } from './pokemon-grid';
 
 jest.mock('react-router-dom');
 
-const POKEMON_PER_PAGE = 12;
+const POKEMON_PER_PAGE = 9;
 
 const renderPokemonGridWithContext = () =>
   render(

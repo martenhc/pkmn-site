@@ -51,10 +51,12 @@ export const DetailPage: FC = () => {
   }, [pokedex, pokemonId]);
 
   const handlePrevClick = () => {
+    setCurrentPokemonDetailedData(null); // Trigger loader
     navigate(`/details/${pokemonId - 1}`);
   };
 
   const handleNextClick = () => {
+    setCurrentPokemonDetailedData(null); // Trigger loader
     navigate(`/details/${pokemonId + 1}`);
   };
 

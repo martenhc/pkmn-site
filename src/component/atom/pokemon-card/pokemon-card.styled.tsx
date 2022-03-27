@@ -7,9 +7,3 @@ export const StyledContainerDiv = styled.div`
 export const StyledPokemonHeader = styled.h3`
   text-align: center;
 `;
-
-export const StyledButton = styled.button`
-  border: none;
-  background: none;
-  cursor: pointer;
-`;

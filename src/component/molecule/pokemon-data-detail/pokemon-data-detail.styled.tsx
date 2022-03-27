@@ -27,8 +27,6 @@ export const StyledButton = styled.button`
   background: ${({ backgroundUrl }: StyledButtonProps) =>
     `url(${backgroundUrl}) no-repeat center`};
   background-size: 100%;
-  border: none;
-  cursor: pointer;
   height: 75px;
   width: 75px;
 `;

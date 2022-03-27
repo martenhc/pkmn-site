@@ -136,6 +136,8 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  display: block;
+  margin: auto;
 }
 table {
   border-collapse: collapse;

@@ -5,7 +5,10 @@ import {
 } from '../../../context/PokedexContext';
 import { PokemonBase } from '../../../data/type/pokemon';
 import { PokemonCard } from '../../atom/pokemon-card/pokemon-card';
-import { StyledContainerDiv } from './pokemon-grid.styled';
+import {
+  StyledCardCointainerDiv,
+  StyledContainerDiv,
+} from './pokemon-grid.styled';
 
 type PokemonGridProps = {
   startingOffset?: number;
@@ -53,7 +56,9 @@ export const PokemonGrid: FC<PokemonGridProps> = ({
   return (
     <StyledContainerDiv>
       {pokemonList.map((pokemon) => (
-        <PokemonCard key={pokemon.id} pokemon={pokemon} isClickable />
+        <StyledCardCointainerDiv>
+          <PokemonCard key={pokemon.id} pokemon={pokemon} isClickable />
+        </StyledCardCointainerDiv>
       ))}
     </StyledContainerDiv>
   );

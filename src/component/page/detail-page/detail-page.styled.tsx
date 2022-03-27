@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { FontSizeInPixels } from '../../../data/enum/size';
 
 type StyledPrevNextDivProps = {
   isNext?: boolean;
@@ -58,4 +57,8 @@ export const StyledPrevNextButton = styled.button`
   transform: ${({ isNext = false }: StyledPrevNextDivProps) =>
     `rotate(${isNext ? '90deg' : '270deg'})`};
   width: 40px;
+`;
+
+export const StyledErrorContainerDiv = styled.div`
+  margin: 75px auto;
 `;

@@ -5,7 +5,7 @@ import {
   getPokemonSpriteAssetUrlByPokemonId,
 } from '../../../data/util/url';
 import { PokemonCard } from '../../atom/pokemon-card/pokemon-card';
-import { Title } from '../../core/title/title';
+import { Heading } from '../../core/heading/heading';
 import {
   StyledCardContainerDiv,
   StyledFeatureDiv,
@@ -33,7 +33,7 @@ export const PokemonDataDetail = ({
 
   return (
     <div>
-      <Title size="MEDIUM">Description</Title>
+      <Heading>Description</Heading>
       {description}
 
       {[isBaby, isLegendary, isMythical].map((hasFeature, index) =>

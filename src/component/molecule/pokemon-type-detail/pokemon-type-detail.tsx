@@ -5,7 +5,7 @@ import {
 } from '../../../context/PokedexContext';
 import PokemonType from '../../../data/enum/pokemon-type';
 import { getPokemonTypeHexColorByTypeName } from '../../../data/util/color';
-import { Title } from '../../core/title/title';
+import { Heading } from '../../core/heading/heading';
 import {
   StyledPokemonTypeDetail,
   StyledTypeDiv,
@@ -37,7 +37,7 @@ export const PokemonTypeDetail: FC<PokemonTypeDetailProps> = ({
 
   return (
     <StyledPokemonTypeDetail>
-      <Title>Type{`${currentPokemonTypes.length > 1 ? 's' : ''}`}</Title>
+      <Heading>Type{`${currentPokemonTypes.length > 1 ? 's' : ''}`}</Heading>
       <>
         {currentPokemonTypes.map((typeName) => (
           <StyledTypeDiv

@@ -8,11 +8,13 @@ import { PokemonDetail } from '../../../data/type/pokemon';
 import { getPokemonSpriteAssetUrlByPokemonId } from '../../../data/util/url';
 import { Loader } from '../../atom/loader/loader';
 import { PokemonCard } from '../../atom/pokemon-card/pokemon-card';
+import { Heading } from '../../core/heading/heading';
 import { PokemonDataDetail } from '../../molecule/pokemon-data-detail/pokemon-data-detail';
 import { PokemonTypeDetail } from '../../molecule/pokemon-type-detail/pokemon-type-detail';
 import {
   StyledContainerDiv,
   StyledContentDiv,
+  StyledErrorContainerDiv,
   StyledPrevNextButton,
 } from './detail-page.styled';
 
@@ -56,7 +58,12 @@ export const DetailPage: FC = () => {
     navigate(`/details/${pokemonId + 1}`);
   };
 
-  if (errorMessage) return <div>{errorMessage}</div>;
+  if (errorMessage)
+    return (
+      <StyledErrorContainerDiv>
+        <Heading>{errorMessage}</Heading>
+      </StyledErrorContainerDiv>
+    );
 
   return (
     <>

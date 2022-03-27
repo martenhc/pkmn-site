@@ -4,6 +4,7 @@ import { StyledContainerDiv, StyledPokemonHeader } from './pokemon-card.styled';
 import { useNavigate } from 'react-router-dom';
 import { Image } from '../../core/image/image';
 import { ConditionalWrapper } from '../../core/conditional-wrapper/conditionalWrapper';
+import { Heading } from '../../core/heading/heading';
 
 type PokemonCardProps = {
   hideHeader?: boolean;
@@ -30,7 +31,9 @@ export const PokemonCard: FC<PokemonCardProps> = ({
     <StyledContainerDiv>
       {!hideHeader && (
         <StyledPokemonHeader>
-          #{pokemon.id} - {pokemon.name}
+          <Heading>
+            #{pokemon.id} - {pokemon.name}
+          </Heading>
         </StyledPokemonHeader>
       )}
       <ConditionalWrapper condition={isClickable} wrapper={buttonWrapper}>

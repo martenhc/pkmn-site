@@ -5,11 +5,21 @@ type HeadingProps = {
   size: keyof typeof FontSizeInPixels;
 };
 
+const getTopAndBottomMargin = (size: keyof typeof FontSizeInPixels) => {
+  switch (size) {
+    case 'BIG':
+      return 45;
+    case 'MEDIUM':
+      return 15;
+    default:
+      return 0;
+  }
+};
+
 export const StyledDiv = styled.div`
-  font-family: 'Pokemon Solid Normal';
+  font-family: Verdana, Geneva, sans-serif;
   font-size: ${({ size }: HeadingProps) => `${FontSizeInPixels[size]}px`};
-  letter-spacing: 2px;
-  margin-bottom: 5%;
-  padding: 2%;
+  font-weight: 600;
+  margin: ${({ size }: HeadingProps) => `${getTopAndBottomMargin(size)}px 0`};
   text-align: center;
 `;

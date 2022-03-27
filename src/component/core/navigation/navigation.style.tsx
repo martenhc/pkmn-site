@@ -24,6 +24,8 @@ export const StyledNavContainer = styled.div`
 `;
 
 export const StyledNavLink = styled(NavLink)`
+  font-family: 'Pokemon Solid Normal';
+  letter-spacing: 2px;
   font-weight: bold;
   text-align: center;
 `;

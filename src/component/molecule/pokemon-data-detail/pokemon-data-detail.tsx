@@ -7,6 +7,7 @@ import {
 } from '../../../data/util/url';
 import { Title } from '../../core/title/title';
 import {
+  StyledButton,
   StyledFeatureDiv,
   StyledPreEvolutionDiv,
 } from './pokemon-data-detail.styled';
@@ -52,10 +53,12 @@ export const PokemonDataDetail = ({
           <div>
             Evolves from: <span>{uppercaseFirstLetter(previousForm.name)}</span>
           </div>
-          <img
-            src={getPokemonSpriteAssetUrlByPokemonId(preEvolutionId)}
+          <StyledButton
             onClick={onPreEvolutionClick}
-            alt={previousForm.name}
+            backgroundUrl={getPokemonSpriteAssetUrlByPokemonId(preEvolutionId)}
+            aria-label={`see ${uppercaseFirstLetter(
+              previousForm.name
+            )} details`}
           />
         </StyledPreEvolutionDiv>
       )}

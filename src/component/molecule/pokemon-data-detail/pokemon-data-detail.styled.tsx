@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
+type StyledButtonProps = {
+  backgroundUrl: string;
+};
+
 export const StyledFeatureDiv = styled.div`
   font-weight: bold;
-  margin: 3% 0;
+  margin: 15px 0;
   width: 100%;
 `;
 
@@ -17,11 +21,14 @@ export const StyledPreEvolutionDiv = styled.div`
       font-weight: bold;
     }
   }
+`;
 
-  img {
-    align-items: center;
-    align-self: center;
-    cursor: pointer;
-    height: 75px;
-  }
+export const StyledButton = styled.button`
+  background: ${({ backgroundUrl }: StyledButtonProps) =>
+    `url(${backgroundUrl}) no-repeat center`};
+  background-size: 100%;
+  border: none;
+  cursor: pointer;
+  height: 75px;
+  width: 75px;
 `;

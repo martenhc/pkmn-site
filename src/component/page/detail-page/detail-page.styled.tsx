@@ -28,26 +28,34 @@ export const StyledContentDiv = styled.div`
   padding: 10px;
 `;
 
-const backAndForthAnimation = (isNext: boolean) => keyframes`{
+const backAndForthAnimation = (isNext: boolean) => {
+  const side = isNext ? 'left' : 'right';
+
+  return keyframes`{
   0% {
-    margin-${isNext ? 'left' : 'right'}: 0;
+    margin-${side}: 0;
   }
   50% {
-    margin-${isNext ? 'left' : 'right'}: 5%;
+    margin-${side}: 5%;
   }
   100% {
-    margin-${isNext ? 'left' : 'right'}: 0;
+    margin-${side}: 0;
   }
 }`;
+};
 
-export const StyledPrevNextDiv = styled.div`
+export const StyledPrevNextButton = styled.button`
   animation-duration: 2s;
   animation-name: ${({ isNext = false }: StyledPrevNextDivProps) =>
     backAndForthAnimation(isNext)};
   animation-iteration-count: infinite;
 
+  background: url('/svg/arrow.svg') no-repeat center center;
+
   cursor: pointer;
-  font-size: ${FontSizeInPixels.BIG}px;
-  font-wight: bold;
+  height: 40px;
   margin: auto;
+  transform: ${({ isNext = false }: StyledPrevNextDivProps) =>
+    `rotate(${isNext ? '90deg' : '270deg'})`};
+  width: 40px;
 `;

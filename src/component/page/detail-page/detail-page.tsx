@@ -13,7 +13,7 @@ import { PokemonTypeDetail } from '../../molecule/pokemon-type-detail/pokemon-ty
 import {
   StyledContainerDiv,
   StyledContentDiv,
-  StyledPrevNextDiv,
+  StyledPrevNextButton,
 } from './detail-page.styled';
 
 export const DetailPage: FC = () => {
@@ -64,7 +64,7 @@ export const DetailPage: FC = () => {
         <Loader />
       ) : (
         <StyledContainerDiv>
-          <StyledPrevNextDiv onClick={handlePrevClick}>{'<'}</StyledPrevNextDiv>
+          <StyledPrevNextButton onClick={handlePrevClick} />
           <StyledContentDiv>
             <PokemonCard
               pokemon={{
@@ -78,9 +78,7 @@ export const DetailPage: FC = () => {
               pokemonDetailedData={currentPokemonDetailedData}
             />
           </StyledContentDiv>
-          <StyledPrevNextDiv isNext onClick={handleNextClick}>
-            {'>'}
-          </StyledPrevNextDiv>
+          <StyledPrevNextButton isNext onClick={handleNextClick} />
         </StyledContainerDiv>
       )}
     </>

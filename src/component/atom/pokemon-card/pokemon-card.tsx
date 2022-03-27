@@ -1,10 +1,6 @@
 import { FC } from 'react';
 import { PokemonBase } from '../../../data/type/pokemon';
-import {
-  StyledButton,
-  StyledContainerDiv,
-  StyledPokemonHeader,
-} from './pokemon-card.styled';
+import { StyledContainerDiv, StyledPokemonHeader } from './pokemon-card.styled';
 import { useNavigate } from 'react-router-dom';
 import { Image } from '../../core/image/image';
 import { ConditionalWrapper } from '../../core/conditional-wrapper/conditionalWrapper';
@@ -25,7 +21,7 @@ export const PokemonCard: FC<PokemonCardProps> = ({
   };
 
   const buttonWrapper: FC = ({ children }) => (
-    <StyledButton onClick={handlePokemonClick}>{children}</StyledButton>
+    <button onClick={handlePokemonClick}>{children}</button>
   );
 
   return (

@@ -74,6 +74,7 @@ export const DetailPage: FC = () => {
           <StyledPrevNextButton
             onClick={handlePrevClick}
             aria-label="previous"
+            disabled={pokemonId === 1}
           />
           <StyledContentDiv>
             <PokemonCard

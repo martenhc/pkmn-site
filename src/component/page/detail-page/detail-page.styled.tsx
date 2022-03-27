@@ -9,6 +9,8 @@ const fadeInAnimation = keyframes`
     100% {opacity:1;}
   `;
 
+const contentMargin = '75px auto';
+
 export const StyledContainerDiv = styled.div`
   animation: ${fadeInAnimation} 1s;
   display: grid;
@@ -22,7 +24,7 @@ export const StyledContentDiv = styled.div`
 
   font-weight: 500;
   line-height: 1.2rem;
-  margin: 75px auto;
+  margin: ${contentMargin};
   max-width: 900px;
   padding: 10px;
 `;
@@ -35,7 +37,7 @@ const backAndForthAnimation = (isNext: boolean) => {
     margin-${side}: 0;
   }
   50% {
-    margin-${side}: 5%;
+    margin-${side}: 15px;
   }
   100% {
     margin-${side}: 0;
@@ -57,8 +59,12 @@ export const StyledPrevNextButton = styled.button`
   transform: ${({ isNext = false }: StyledPrevNextDivProps) =>
     `rotate(${isNext ? '90deg' : '270deg'})`};
   width: 40px;
+
+  :disabled {
+    visibility: hidden;
+  }
 `;
 
 export const StyledErrorContainerDiv = styled.div`
-  margin: 75px auto;
+  margin: ${contentMargin};
 `;

@@ -64,7 +64,10 @@ export const DetailPage: FC = () => {
         <Loader />
       ) : (
         <StyledContainerDiv>
-          <StyledPrevNextButton onClick={handlePrevClick} />
+          <StyledPrevNextButton
+            onClick={handlePrevClick}
+            aria-label="previous"
+          />
           <StyledContentDiv>
             <PokemonCard
               pokemon={{
@@ -78,7 +81,11 @@ export const DetailPage: FC = () => {
               pokemonDetailedData={currentPokemonDetailedData}
             />
           </StyledContentDiv>
-          <StyledPrevNextButton isNext onClick={handleNextClick} />
+          <StyledPrevNextButton
+            isNext
+            onClick={handleNextClick}
+            aria-label="next"
+          />
         </StyledContainerDiv>
       )}
     </>

@@ -6,13 +6,15 @@ import { Image } from '../../core/image/image';
 import { ConditionalWrapper } from '../../core/conditional-wrapper/conditionalWrapper';
 
 type PokemonCardProps = {
-  pokemon: PokemonBase;
+  hideHeader?: boolean;
   isClickable?: boolean;
+  pokemon: PokemonBase;
 };
 
 export const PokemonCard: FC<PokemonCardProps> = ({
-  pokemon,
+  hideHeader = false,
   isClickable = false,
+  pokemon,
 }) => {
   const navigate = useNavigate();
 
@@ -26,9 +28,11 @@ export const PokemonCard: FC<PokemonCardProps> = ({
 
   return (
     <StyledContainerDiv>
-      <StyledPokemonHeader>
-        #{pokemon.id} - {pokemon.name}
-      </StyledPokemonHeader>
+      {!hideHeader && (
+        <StyledPokemonHeader>
+          #{pokemon.id} - {pokemon.name}
+        </StyledPokemonHeader>
+      )}
       <ConditionalWrapper condition={isClickable} wrapper={buttonWrapper}>
         <Image
           src={pokemon.spriteUrl}

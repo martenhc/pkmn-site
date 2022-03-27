@@ -1,15 +1,15 @@
-import { useNavigate } from 'react-router-dom';
 import { PokemonDetail } from '../../../data/type/pokemon';
 import { uppercaseFirstLetter } from '../../../data/util/string';
 import {
   getPokemonIdFromDetailUrl,
   getPokemonSpriteAssetUrlByPokemonId,
 } from '../../../data/util/url';
+import { PokemonCard } from '../../atom/pokemon-card/pokemon-card';
 import { Title } from '../../core/title/title';
 import {
-  StyledButton,
+  StyledCardContainerDiv,
   StyledFeatureDiv,
-  StyledPreEvolutionDiv,
+  StyledPreviousFormDiv,
 } from './pokemon-data-detail.styled';
 
 type PokemonDetailDataProps = {
@@ -27,13 +27,9 @@ export const PokemonDataDetail = ({
     previousForm,
   },
 }: PokemonDetailDataProps) => {
-  const navigate = useNavigate();
-
-  const preEvolutionId =
+  const previousFormId =
     // When a pre-evolution is from another generation, it's not the previous number
     previousForm && getPokemonIdFromDetailUrl(previousForm.url);
-
-  const onPreEvolutionClick = () => navigate(`/details/${preEvolutionId}/`);
 
   return (
     <div>
@@ -48,19 +44,23 @@ export const PokemonDataDetail = ({
         ) : null
       )}
 
-      {preEvolutionId && (
-        <StyledPreEvolutionDiv>
+      {previousFormId && (
+        <StyledPreviousFormDiv>
           <div>
             Evolves from: <span>{uppercaseFirstLetter(previousForm.name)}</span>
           </div>
-          <StyledButton
-            onClick={onPreEvolutionClick}
-            backgroundUrl={getPokemonSpriteAssetUrlByPokemonId(preEvolutionId)}
-            aria-label={`see ${uppercaseFirstLetter(
-              previousForm.name
-            )} details`}
-          />
-        </StyledPreEvolutionDiv>
+          <StyledCardContainerDiv>
+            <PokemonCard
+              pokemon={{
+                id: previousFormId,
+                name: previousForm.name,
+                spriteUrl: getPokemonSpriteAssetUrlByPokemonId(previousFormId),
+              }}
+              hideHeader
+              isClickable
+            />
+          </StyledCardContainerDiv>
+        </StyledPreviousFormDiv>
       )}
     </div>
   );

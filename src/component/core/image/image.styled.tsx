@@ -10,6 +10,7 @@ export const StyledImage = styled.img`
     isLoaded ? 'visible' : 'hidden'};
   transform: scale(1);
   transition: 0.5s;
+  width: 100%;
 
   ${({ withOnHoverScaling }: StyledImageProps) => {
     if (withOnHoverScaling)

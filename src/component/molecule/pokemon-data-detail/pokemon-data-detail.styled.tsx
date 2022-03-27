@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-type StyledButtonProps = {
-  backgroundUrl: string;
-};
+export const StyledCardContainerDiv = styled.div`
+  height: 75px;
+  width: 75px;
+`;
 
 export const StyledFeatureDiv = styled.div`
   font-weight: bold;
@@ -10,7 +11,7 @@ export const StyledFeatureDiv = styled.div`
   width: 100%;
 `;
 
-export const StyledPreEvolutionDiv = styled.div`
+export const StyledPreviousFormDiv = styled.div`
   display: flex;
   margin-top: 10%;
 
@@ -21,12 +22,4 @@ export const StyledPreEvolutionDiv = styled.div`
       font-weight: bold;
     }
   }
-`;
-
-export const StyledButton = styled.button`
-  background: ${({ backgroundUrl }: StyledButtonProps) =>
-    `url(${backgroundUrl}) no-repeat center`};
-  background-size: 100%;
-  height: 75px;
-  width: 75px;
 `;

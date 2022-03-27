@@ -20,7 +20,7 @@ export const StyledTypeDiv = styled.div`
       ? 'white'
       : 'black'};
   font-weight: bold;
-  margin: 3% auto;
+  margin: 5px auto;
   padding: 3px 5px;
   text-align: center;
   width: 50%;

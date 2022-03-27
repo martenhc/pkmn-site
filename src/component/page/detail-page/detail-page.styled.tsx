@@ -23,7 +23,7 @@ export const StyledContentDiv = styled.div`
 
   font-weight: 500;
   line-height: 1.2rem;
-  margin: 5% auto;
+  margin: 75px auto;
   max-width: 900px;
   padding: 10px;
 `;

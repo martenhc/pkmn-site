@@ -11,6 +11,8 @@ export type Interval = {
 
 export type Pokedex = {
   getPokemonByName: (id: number) => Promise<ApiPokemonTypeResponse>;
-  getPokemonSpeciesByName: (id: number) => Promise<ApiPokemonSpeciesResponse>;
+  getPokemonSpeciesByName: (
+    id: number | string
+  ) => Promise<ApiPokemonSpeciesResponse>;
   getPokemonsList: (interval: Interval) => Promise<ApiPokemonIntervalResponse>;
 };

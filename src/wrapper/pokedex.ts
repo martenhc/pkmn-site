@@ -35,6 +35,11 @@ export class WrappedPokedex {
     });
   }
 
+  public async getPokemonIdByName(name: string) {
+    const { id } = await this._pokedex.getPokemonSpeciesByName(name);
+    return id;
+  }
+
   public async getPokemonDetailsById(
     pokemonId: number
   ): Promise<PokemonDetail> {

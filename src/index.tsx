@@ -9,7 +9,6 @@ import './index.css';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Navigation />
       <Router />
     </BrowserRouter>
   </React.StrictMode>,

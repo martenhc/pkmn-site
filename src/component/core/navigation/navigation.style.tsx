@@ -7,8 +7,6 @@ const BAR_HEIGHT = 30;
 export const StyledNavContainer = styled.div`
   background-color: ${HexColor.red};
   color: white;
-  display: grid;
-  grid-template-columns: 15% 85%;
   height: ${BAR_HEIGHT}px;
   line-height: ${BAR_HEIGHT}px;
   padding: 5px;
@@ -21,6 +19,13 @@ export const StyledNavContainer = styled.div`
       color: white;
     }
   }
+`;
+
+export const StyledContentDiv = styled.div`
+  display: grid;
+  grid-template-columns: 15% 85%;
+  margin: auto;
+  max-width: 900px;
 `;
 
 export const StyledNavLink = styled(NavLink)`

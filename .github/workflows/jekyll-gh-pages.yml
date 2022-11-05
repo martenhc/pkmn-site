@@ -34,7 +34,7 @@ jobs:
       - name: Run tests
         run: npm run test
       - name: Build project
-        run: npm build
+        run: npm run build
 
   # Deployment job
   deploy:

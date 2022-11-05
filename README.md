@@ -16,6 +16,10 @@ Personal project to have some fun practicing some React while I learn styled com
   -- This one's wrapped up [here](https://github.com/martenhc/pkmn-site/blob/develop/src/wrapper/pokedex.ts) and being used mainly because it deals with caching, might remove later.
 - Pokémon Assets CDN -- To get cooler images than the ones returned by PokeAPI
 
+## CD/CI Pipeline
+
+This projects gets automatically deployed to Github pages when merges to the `main` branch happen.
+
 ## Available Scripts
 
 The project was started using [Create React App](https://create-react-app.dev/).

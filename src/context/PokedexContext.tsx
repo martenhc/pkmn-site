@@ -1,4 +1,4 @@
-import { FC, createContext, useState } from 'react';
+import { FC, createContext } from 'react';
 import { WrappedPokedex } from '../wrapper/pokedex';
 
 export type PokedexContextProps = {
@@ -9,7 +9,7 @@ export type PokedexContextProps = {
 export const PokedexContext = createContext<PokedexContextProps | null>(null);
 
 export const PokedexContextProvider: FC = ({ children }) => {
-  const [pokedex] = useState<WrappedPokedex>(new WrappedPokedex());
+  const pokedex = new WrappedPokedex();
 
   return (
     <PokedexContext.Provider value={{ pokedex }}>

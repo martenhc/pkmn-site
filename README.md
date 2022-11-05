@@ -13,7 +13,7 @@ Personal project to have some fun practicing some React while I learn styled com
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) / [Jest](https://github.com/facebook/jest)
 - [PokeAPI](https://pokeapi.co/)
 - [PokeAPI JS Wrapper lib](https://github.com/PokeAPI/pokeapi-js-wrapper)
-  -- This one's wrapped up and being used mainly because it deals with caching, might remove later.
+  -- This one's wrapped [here](https://github.com/martenhc/pkmn-site/blob/develop/src/wrapper/pokedex.ts) up and being used mainly because it deals with caching, might remove later.
 - Pokémon Assets CDN -- To get cooler images than the ones returned by PokeAPI
 
 ## Available Scripts

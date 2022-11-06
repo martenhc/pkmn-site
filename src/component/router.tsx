@@ -4,6 +4,7 @@ import { PokedexContextProvider } from '../context/PokedexContext';
 import { Navigation } from './core/navigation/navitagion';
 import { DetailPage } from './page/detail-page/detail-page';
 import { HomePage } from './page/home-page/home-page';
+import { NotFoundPage } from './page/not-found-page/not-found-page';
 
 export enum RoutePath {
   HOME = '/',
@@ -16,6 +17,7 @@ export const Router: FC = () => (
     <Routes>
       <Route path={RoutePath.HOME} element={<HomePage />} />
       <Route path={RoutePath.DETAILS} element={<DetailPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </PokedexContextProvider>
 );

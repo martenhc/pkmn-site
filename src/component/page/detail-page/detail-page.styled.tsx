@@ -51,7 +51,7 @@ export const StyledPrevNextButton = styled.button`
     backAndForthAnimation(isNext)};
   animation-iteration-count: infinite;
 
-  background: url('/svg/arrow.svg') no-repeat center center;
+  background: url('/pkmn-site/svg/arrow.svg') no-repeat center center;
 
   cursor: pointer;
   height: 40px;

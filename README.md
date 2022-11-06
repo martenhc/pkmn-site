@@ -4,6 +4,11 @@
 
 Personal project to have some fun practicing some React while I learn styled components.
 
+## Deployed site and CD/CI Pipeline
+
+This projects gets automatically deployed to Github pages when merges to the `main` branch happen.
+You can check it out here: https://martenhc.github.io/pkmn-site/
+
 ## Tools and packages
 
 - [React](https://es.reactjs.org/)
@@ -15,10 +20,6 @@ Personal project to have some fun practicing some React while I learn styled com
 - [PokeAPI JS Wrapper lib](https://github.com/PokeAPI/pokeapi-js-wrapper)
   -- This one's wrapped up [here](https://github.com/martenhc/pkmn-site/blob/develop/src/wrapper/pokedex.ts) and being used mainly because it deals with caching, might remove later.
 - Pokémon Assets CDN -- To get cooler images than the ones returned by PokeAPI
-
-## CD/CI Pipeline
-
-This projects gets automatically deployed to Github pages when merges to the `main` branch happen.
 
 ## Available Scripts
 

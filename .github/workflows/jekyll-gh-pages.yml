@@ -17,8 +17,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Test jo
-
   # Build job
   build:
     runs-on: ubuntu-latest
@@ -27,19 +25,25 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: 'npm'
+
+      # Check project out with a preconfigured action
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
       - name: Run tests
         run: npm run test
       - name: Build project
         run: npm run build
+      # Github pages addes the name of the project as a base URL
+      - name: Edit index.html
+        run: sed -i.bak 's/href="\//href="/g' index.html && sed -i.bak 's/src="\//src="/g' index.html
+      # upload-pages-artifact creates a .tar file with the contents of the set path (or ./_site as default)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          name: github-pages
-          path: build/
+          path: ./build
 
   # Deployment job
   deploy:

@@ -35,8 +35,8 @@ jobs:
         run: npm run build
 
       # Github pages adds the name of the project as a base URL
-      - name: Edit index.html
-        run: sed -i.bak 's/href="\//href="\/pkmn-site\//g' ./build/index.html && sed -i.bak 's/src="\//src="\/pkmn-site\//g' ./build/index.html
+      # - name: Edit index.html
+      # run: sed -i.bak 's/href="\//href="\/pkmn-site\//g' ./build/index.html && sed -i.bak 's/src="\//src="\/pkmn-site\//g' ./build/index.html
 
       # upload-pages-artifact creates a .tar file with the contents of the set path (or ./_site as default)
       - name: Upload artifact

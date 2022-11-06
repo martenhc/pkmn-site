@@ -1,5 +1,6 @@
 {
   "name": "pkmn-game",
+  "homepage": "https://martenhc.github.io/pkmn-site/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
